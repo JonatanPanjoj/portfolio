@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/config/theme/app_colors.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:portfolio/config/theme/theme.dart';
+import 'package:portfolio/presentation/providers/providers.dart';
 
-class CustomGradientButton extends StatelessWidget {
+class CustomGradientButton extends ConsumerWidget {
   final String label;
   final VoidCallback? onPressed;
   final double horizontalPadding;
@@ -18,12 +20,12 @@ class CustomGradientButton extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(30),
       child: Ink(
         decoration: BoxDecoration(
-          gradient: gradient_1,
+          gradient: ref.watch(gradientNotifierProvider),
           borderRadius: BorderRadius.circular(30),
         ),
         child: TextButton(

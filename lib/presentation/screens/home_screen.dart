@@ -16,14 +16,24 @@ class HomeScreen extends ConsumerWidget {
         slivers: [
           _buildAppBar(context, ref),
           const CustomSliverSizedBox(height: 50),
-          _buildPresentationInfo(context),
+          _buildPresentationInfo(context, ref),
+          const CustomSliverSizedBox(height: 75),
+          _buildProjects(context),
+          const CustomSliverSizedBox(height: 50),
+          _buildStats(context),
+          const CustomSliverSizedBox(height: 50),
+          _buildTools(context),
+          const CustomSliverSizedBox(height: 75),
+          _buildCuote(context)
         ],
       ),
     );
   }
 
   Widget _buildAppBar(BuildContext context, WidgetRef ref) {
+    final colors = Theme.of(context);
     return SliverAppBar(
+      surfaceTintColor: colors.scaffoldBackgroundColor,
       elevation: 0,
       titleSpacing: 100,
       title: const Text(
@@ -32,6 +42,24 @@ class HomeScreen extends ConsumerWidget {
       ),
       pinned: true,
       actions: [
+        PopupMenuButton<LinearGradient>(
+          onSelected: (LinearGradient result) {
+            ref.read(gradientNotifierProvider.notifier).changeGradient(result);
+          },
+          itemBuilder: (BuildContext context) =>
+              gradients.map((LinearGradient gradient) {
+            return PopupMenuItem<LinearGradient>(
+              value: gradient,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(15),
+                child: Container(
+                  height: 50,
+                  decoration: BoxDecoration(gradient: gradient),
+                ),
+              ),
+            );
+          }).toList(),
+        ),
         CustomFilledButton(
           variant: ButtonVariant.text,
           isBold: false,
@@ -77,7 +105,7 @@ class HomeScreen extends ConsumerWidget {
     );
   }
 
-  Widget _buildPresentationInfo(BuildContext context) {
+  Widget _buildPresentationInfo(BuildContext context, WidgetRef ref) {
     final size = MediaQuery.of(context).size;
     final TextStyle titleStyle =
         TextStyle(fontSize: size.width * 0.042, fontWeight: FontWeight.bold);
@@ -98,7 +126,6 @@ class HomeScreen extends ConsumerWidget {
                   CustomGradientText(
                     "Hello! I'm Jonatan,",
                     style: titleStyle,
-                    gradient: gradient_1,
                   ),
                   Text(
                     'Mobile & Web Developer',
@@ -147,6 +174,151 @@ class HomeScreen extends ConsumerWidget {
               ),
             )
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildProjects(BuildContext context) {
+    final colors = Theme.of(context);
+    final size = MediaQuery.of(context).size;
+    final TextStyle titleStyle =
+        TextStyle(fontSize: size.width * 0.042, fontWeight: FontWeight.bold);
+    return SliverToBoxAdapter(
+      child: Column(
+        children: [
+          Container(
+            width: size.width,
+            decoration: BoxDecoration(color: colors.cardColor),
+            child: Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 100.0, vertical: 25),
+              child: CustomGradientText(
+                'Selected Projects',
+                style: titleStyle,
+              ),
+            ),
+          ),
+          const SizedBox(height: 50),
+          const HorizontalImageAndDescription(),
+          const SizedBox(height: 25),
+          const HorizontalImageAndDescription(
+            swipe: true,
+          ),
+          const SizedBox(height: 25),
+          const HorizontalImageAndDescription(),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildStats(BuildContext context) {
+    final colors = Theme.of(context);
+    return SliverToBoxAdapter(
+      child: Container(
+          decoration: BoxDecoration(color: colors.cardColor),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 25),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const StatNumber(stat: '+3', label: 'Years of Experience'),
+                SizedBox(
+                  height: 50,
+                  child: VerticalDivider(color: colors.disabledColor),
+                ),
+                const StatNumber(stat: '+10', label: 'Projects Completed'),
+                SizedBox(
+                  height: 50,
+                  child: VerticalDivider(color: colors.disabledColor),
+                ),
+                const StatNumber(stat: '+2', label: 'Customers Attended'),
+              ],
+            ),
+          )),
+    );
+  }
+
+  Widget _buildTools(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
+    final TextStyle titleStyle =
+        TextStyle(fontSize: size.width * 0.042, fontWeight: FontWeight.bold);
+    return SliverToBoxAdapter(
+      child: Padding(
+        padding: padding,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            CustomGradientText('Tools', style: titleStyle),
+            const SizedBox(height: 50),
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                CustomImageContainer(
+                  image: 'assets/img/flutter.png',
+                  lable: 'Flutter',
+                ),
+                CustomImageContainer(
+                  image: 'assets/img/firebase.png',
+                  lable: 'Firebase',
+                  fit: BoxFit.fitHeight,
+                ),
+                CustomImageContainer(
+                  image: 'assets/img/figma.png',
+                  lable: 'Figma',
+                  fit: BoxFit.fitHeight,
+                ),
+              ],
+            ),
+            const SizedBox(height: 50),
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                CustomImageContainer(
+                  image: 'assets/img/angular.png',
+                  lable: 'Angular',
+                ),
+                CustomImageContainer(
+                  image: 'assets/img/nojejs.png',
+                  lable: 'Node Js',
+                  fit: BoxFit.fitHeight,
+                ),
+                CustomImageContainer(
+                  image: 'assets/img/jira.png',
+                  lable: 'Jira',
+                  fit: BoxFit.fitHeight,
+                ),
+              ],
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildCuote(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    final TextStyle titleStyle =
+        TextStyle(fontSize: size.width * 0.042, fontWeight: FontWeight.bold);
+    return SliverToBoxAdapter(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 200, vertical: 25),
+        child: Center(
+          child: Column(
+            children: [
+              Text(
+                'Transformando ideas en experiencias móviles excepcionales:',
+                textAlign: TextAlign.center,
+                style: titleStyle,
+              ),
+              Text(
+                '¡Diseñando el futuro, una app a la vez!',
+                textAlign: TextAlign.center,
+                style: titleStyle,
+              ),
+            ],
+          ),
         ),
       ),
     );

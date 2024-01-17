@@ -21,6 +21,8 @@ class AppTheme {
       canvasColor: isDarkMode ? backgroundDark : backgroundLight,
       scaffoldBackgroundColor: isDarkMode ? backgroundDark : backgroundLight,
       disabledColor: isDarkMode ? disabledDark : disabledLight,
+      cardColor: isDarkMode ? background2Dark : background2Light,
+      dividerColor: isDarkMode ? disabledDark : disabledLight,
 
       //FONTS
       textTheme: GoogleFonts.baiJamjureeTextTheme(
@@ -32,6 +34,7 @@ class AppTheme {
       appBarTheme: AppBarTheme(
         color: isDarkMode ? backgroundDark : backgroundLight,
       ),
+
     );
   }
 
