@@ -1,9 +1,20 @@
 import 'package:flutter/material.dart';
 
 class HorizontalImageAndDescription extends StatelessWidget {
+  final String title;
+  final String description;
   final bool swipe;
+  final String image;
+  final BoxFit fit;
 
-  const HorizontalImageAndDescription({super.key, this.swipe = false});
+  const HorizontalImageAndDescription({
+    super.key,
+    this.swipe = false,
+    required this.image,
+    this.fit = BoxFit.cover,
+    required this.title,
+    required this.description,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -17,28 +28,21 @@ class HorizontalImageAndDescription extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          if (!swipe)
-            ClipRRect(
-              borderRadius: const BorderRadius.all(Radius.circular(15)),
-              child: Image.asset(
-                'assets/img/joix.jpg',
-                width: size.width * 0.28,
-                height: size.width * 0.28,
-                fit: BoxFit.cover,
-              ),
-            ),
+          if (!swipe) _GradientImage(image: image),
           Container(
             padding: const EdgeInsets.only(left: 50),
             width: size.width * 0.5,
             child: Column(
               children: [
                 Text(
-                  'Project 1',
+                  title,
                   style: titleStyle,
                 ),
-                const SizedBox(height: 20,),
+                const SizedBox(
+                  height: 20,
+                ),
                 Text(
-                  'Officia deserunt nostrud culpa anim nulla velit ipsum enim ea. Veniam nisi mollit esse excepteur voluptate nulla officia eu nulla laborum amet do. Eiusmod do irure Lorem ut ullamco quis. Anim nostrud adipisicing Lorem in aliqua culpa. Proident velit duis anim ipsum non irure ut incididunt non anim. ',
+                  description,
                   textAlign: TextAlign.justify,
                   style: TextStyle(fontSize: size.width * 0.013),
                 )
@@ -46,15 +50,49 @@ class HorizontalImageAndDescription extends StatelessWidget {
             ),
           ),
           if (swipe)
-            ClipRRect(
-              borderRadius: const BorderRadius.all(Radius.circular(15)),
-              child: Image.asset(
-                'assets/img/joix.jpg',
-                width: size.width * 0.28,
-                height: size.width * 0.28,
-                fit: BoxFit.cover,
+            _GradientImage(
+              image: image,
+            ),
+        ],
+      ),
+    );
+  }
+}
+
+class _GradientImage extends StatelessWidget {
+  final String image;
+
+  const _GradientImage({required this.image});
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = Theme.of(context);
+    final size = MediaQuery.of(context).size;
+    final imageSize = size.width * 0.28;
+    return ClipRRect(
+      borderRadius: const BorderRadius.all(Radius.circular(15)),
+      child: Stack(
+        children: [
+          Image.asset(
+            image,
+            width: imageSize,
+            height: imageSize,
+            fit: BoxFit.cover,
+          ),
+          SizedBox(
+            width: imageSize+2,
+            height: imageSize+2,
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  stops: const [0.3, 0.9],
+                  colors: [Colors.transparent, colors.scaffoldBackgroundColor],
+                ),
               ),
             ),
+          ),
         ],
       ),
     );

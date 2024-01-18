@@ -35,6 +35,9 @@ class AppTheme {
         color: isDarkMode ? backgroundDark : backgroundLight,
       ),
 
+      dividerTheme: DividerThemeData(
+        color: isDarkMode ? disabledDark : disabledLight,
+      )
     );
   }
 
