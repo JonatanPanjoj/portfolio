@@ -9,28 +9,34 @@ class HomeScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return const Scaffold(
+    ScrollController scrollController = ScrollController();
+    final GlobalKey presentationKey = GlobalKey();
+    final GlobalKey projectsKey = GlobalKey();
+    final GlobalKey toolsKey = GlobalKey();
+
+    return Scaffold(
       body: CustomScrollView(
+        controller: scrollController,
         slivers: [
-          CustomSliverAppBar(),
-          CustomSliverSizedBox(height: 50),
-          PresentationInfoSection(),
-          CustomSliverSizedBox(height: 75),
-          ProjectCardsSection(),
-          CustomSliverSizedBox(height: 50),
-          StatsItemsSection(),
-          CustomSliverSizedBox(height: 50),
-          UsedToolsSection(),
-          CustomSliverSizedBox(height: 75),
-          CuoteSection(),
-          CustomSliverSizedBox(height: 50),
-          FooterSection(),
+          CustomSliverAppBar(
+            presentationKey: presentationKey,
+            projectsKey: projectsKey,
+            toolsKey: toolsKey,
+          ),
+          const CustomSliverSizedBox(height: 50),
+          PresentationInfoSection(key: presentationKey),
+          const CustomSliverSizedBox(height: 75),
+          ProjectCardsSection(key: projectsKey),
+          const CustomSliverSizedBox(height: 50),
+          const StatsItemsSection(),
+          const CustomSliverSizedBox(height: 50),
+          UsedToolsSection(key: toolsKey),
+          const CustomSliverSizedBox(height: 75),
+          const CuoteSection(),
+          const CustomSliverSizedBox(height: 50),
+          const FooterSection(),
         ],
       ),
     );
   }
-
-
-
 }
-

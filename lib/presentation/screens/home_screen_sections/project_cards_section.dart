@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/presentation/widgets/widgets.dart';
 
@@ -21,22 +22,22 @@ class ProjectCardsSection extends StatelessWidget {
               padding:
                   const EdgeInsets.symmetric(horizontal: 100.0, vertical: 25),
               child: CustomGradientText(
-                'Selected Projects',
+                'some_projects'.tr(),
                 style: titleStyle,
               ),
             ),
           ),
           const SizedBox(height: 50),
-          const HorizontalImageAndDescription(
+          HorizontalImageAndDescription(
             title: 'Cinemapedia',
-            description: 'Una app en la que puedes ver información sobre tus películas favoritas, como actores, año de lanzamiento. Puedes buscar por categorias y guardas las que prefieras.',
+            description: 'cinemapedia_description'.tr(),
             image: 'assets/img/cinemapedia.png',
             fit: BoxFit.fitHeight,
             swipe: true,
           ),
-          const HorizontalImageAndDescription(
+          HorizontalImageAndDescription(
             title: 'Widgets App',
-            description: 'Una aplicación donde se exiben muchos tipos de widgets de flutter, utilizando material 3. Se aplica el cambio de temas dinamico dark & light y por colores.',
+            description: 'widgets_app_description'.tr(),
             image: 'assets/img/widgets-app.png',
             fit: BoxFit.fitHeight,
           ),

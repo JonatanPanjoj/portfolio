@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/presentation/widgets/widgets.dart';
 
@@ -17,7 +18,7 @@ class UsedToolsSection extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            CustomGradientText('Tools', style: titleStyle),
+            CustomGradientText('tools'.tr().toUpperCase(), style: titleStyle),
             const SizedBox(height: 50),
             const Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,

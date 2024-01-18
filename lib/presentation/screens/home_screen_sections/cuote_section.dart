@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class CuoteSection extends StatelessWidget {
@@ -15,12 +16,12 @@ class CuoteSection extends StatelessWidget {
           child: Column(
             children: [
               Text(
-                'Transformando ideas en experiencias móviles excepcionales:',
+                'cuote_1'.tr(),
                 textAlign: TextAlign.center,
                 style: titleStyle,
               ),
               Text(
-                '¡Diseñando el futuro, una app a la vez!',
+                'cuote_2'.tr(),
                 textAlign: TextAlign.center,
                 style: titleStyle,
               ),

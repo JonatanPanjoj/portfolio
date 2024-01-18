@@ -17,7 +17,7 @@ class AppTheme {
 
       //THEME COLORS
       brightness: isDarkMode ? Brightness.dark : Brightness.light,
-      colorSchemeSeed: isDarkMode ? primaryDark : primaryLight,
+      // colorSchemeSeed: isDarkMode ? primaryDark : primaryLight,
       canvasColor: isDarkMode ? backgroundDark : backgroundLight,
       scaffoldBackgroundColor: isDarkMode ? backgroundDark : backgroundLight,
       disabledColor: isDarkMode ? disabledDark : disabledLight,

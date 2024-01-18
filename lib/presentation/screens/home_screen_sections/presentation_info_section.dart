@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/config/theme/theme.dart';
 import 'package:portfolio/presentation/widgets/widgets.dart';
@@ -29,27 +30,27 @@ class PresentationInfoSection extends StatelessWidget {
                 children: [
                   const SizedBox(height: 50),
                   CustomGradientText(
-                    "Hello! I'm Jonatan,",
+                    "hello_im_jonatan".tr(),
                     style: titleStyle,
                   ),
                   Text(
-                    'Mobile & Web Developer',
+                    'mobile_&_web_developer'.tr(),
                     style: titleStyle,
                   ),
                   Text(
-                    'Ready to bring your digital dreams to life!',
+                    'ready_to_bring_your_digital_dreams_to_life'.tr(),
                     style: titleStyle,
                   ),
                   const SizedBox(height: 30),
-                  const Text(
-                    "Crafting immersive experiences through mobile app design and visual development is my forte. Let's turn your ideas into captivating realities!",
+                  Text(
+                    "presentation_description".tr(),
                     style: normal18,
                   ),
                   const SizedBox(height: 50),
                   Row(
                     children: [
                       CustomGradientButton(
-                        label: 'GET IN TOUCH',
+                        label: 'get_in_touch'.tr(),
                         onPressed: () {},
                         verticalPadding: size.width * 0.0117,
                         horizontalPadding: size.width * 0.018,
@@ -60,7 +61,7 @@ class PresentationInfoSection extends StatelessWidget {
                         variant: ButtonVariant.bordered,
                         verticalPadding: size.width * 0.007,
                         horizontalPadding: size.width * 0.012,
-                        label: 'PROJECTS',
+                        label: 'projects'.tr().toUpperCase(),
                         onPressed: () {},
                         fontSize: size.width * 0.012,
                       ),

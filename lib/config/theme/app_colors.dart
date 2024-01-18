@@ -29,19 +29,18 @@ const List<LinearGradient> gradients = [
   ),
   LinearGradient(
     colors: [
-      Color(0xFFFDFDB1),
-      Color(0xFFFBFB88),
-      Color(0xFFF3FDA6),
-      Color(0xFFD9F897),
-      Color(0xFFC6F798),
-      Color(0xFFB6FC9D),
-      Color(0xFFA5FAA5),
-      Color(0xFF9DFDB7),
-      Color(0xFF8EFBBF),
-      Color(0xFF73FCC8),
-      Color(0xFF4DF4C7),
-      Color(0xFF27EED0),
-      Color(0xFF00dbcb),
+      Color.fromARGB(255, 108, 213, 234),
+      Color.fromARGB(255, 217, 94, 255),
+      Color.fromARGB(255, 255, 86, 187),
+      Color.fromARGB(255, 207, 75, 255),
+    ],
+  ),
+  LinearGradient(
+    colors: [
+      Color.fromARGB(255, 108, 234, 112),
+      Color.fromARGB(255, 94, 255, 250),
+      Color.fromARGB(255, 137, 86, 255),
+      Color.fromARGB(255, 255, 75, 231),
     ],
   ),
   

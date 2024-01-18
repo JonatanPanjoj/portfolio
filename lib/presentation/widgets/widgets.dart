@@ -1,4 +1,4 @@
-export 'package:portfolio/presentation/widgets/components/custom_gradient.dart';
+export 'package:portfolio/config/translation/localization_config_widget.dart';
 export 'package:portfolio/presentation/widgets/components/custom_ciruclar_image.dart';
 export 'package:portfolio/presentation/screens/home_screen_sections/fotter_section.dart';
 export 'package:portfolio/presentation/widgets/components/custom_sliver_app_bar.dart';

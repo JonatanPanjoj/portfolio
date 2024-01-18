@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/presentation/widgets/widgets.dart';
 
@@ -16,17 +17,17 @@ class StatsItemsSection extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const StatNumber(stat: '+3', label: 'Years of Experience'),
+              StatNumber(stat: '+3', label: 'years_of_experience'.tr()),
               SizedBox(
                 height: 50,
                 child: VerticalDivider(color: colors.disabledColor),
               ),
-              const StatNumber(stat: '+10', label: 'Projects Completed'),
+              StatNumber(stat: '+10', label: 'projects_completed'.tr()),
               SizedBox(
                 height: 50,
                 child: VerticalDivider(color: colors.disabledColor),
               ),
-              const StatNumber(stat: '+2', label: 'Customers Attended'),
+              StatNumber(stat: '+2', label: 'customers_attended'.tr()),
             ],
           ),
         ),
