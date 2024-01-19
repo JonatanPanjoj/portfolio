@@ -29,24 +29,28 @@ class HorizontalImageAndDescription extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           if (!swipe) _GradientImage(image: image),
+
           Container(
-            padding: const EdgeInsets.only(left: 50),
+            padding: const EdgeInsets.symmetric(horizontal: 25),
             width: size.width * 0.5,
-            child: Column(
-              children: [
-                Text(
-                  title,
-                  style: titleStyle,
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                Text(
-                  description,
-                  textAlign: TextAlign.justify,
-                  style: TextStyle(fontSize: size.width * 0.013),
-                )
-              ],
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal:0.0),
+              child: Column(
+                children: [
+                  Text(
+                    title,
+                    style: titleStyle,
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    description,
+                    textAlign: TextAlign.justify,
+                    style: TextStyle(fontSize: size.width * 0.013),
+                  )
+                ],
+              ),
             ),
           ),
           if (swipe)

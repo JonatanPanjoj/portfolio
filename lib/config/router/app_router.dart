@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:portfolio/presentation/screens/screens.dart';
 
@@ -7,7 +8,10 @@ final appRouter = GoRouter(
     GoRoute(
       path: '/',
       builder: (context, state) {
-        return const HomeScreen();
+        final size = MediaQuery.of(context).size;
+        return (size.width > 920)
+            ? const HomeScreenWeb()
+            : const HomeScreenMobile();
       },
     ),
     GoRoute(

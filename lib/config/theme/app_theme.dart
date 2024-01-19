@@ -33,6 +33,7 @@ class AppTheme {
       //APP BAR
       appBarTheme: AppBarTheme(
         color: isDarkMode ? backgroundDark : backgroundLight,
+        titleTextStyle: GoogleFonts.baiJamjuree()
       ),
 
       dividerTheme: DividerThemeData(

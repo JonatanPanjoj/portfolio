@@ -4,12 +4,18 @@ class CustomImageContainer extends StatelessWidget {
   final String lable;
   final String image;
   final BoxFit fit;
+  final double? imageSize;
+  final double? containerSize;
+  final double? fontSize;
 
   const CustomImageContainer({
     super.key,
     required this.image,
     required this.lable,
-    this.fit = BoxFit.cover
+    this.fit = BoxFit.cover,
+    this.imageSize,
+    this.containerSize,
+    this.fontSize,
   });
 
   @override
@@ -19,8 +25,8 @@ class CustomImageContainer extends StatelessWidget {
     return ClipRRect(
       borderRadius: const BorderRadius.all(Radius.circular(10)),
       child: Container(
-        width: size.width * 0.12,
-        height: size.width * 0.12,
+        width: containerSize ?? size.width * 0.12,
+        height: containerSize ?? size.width * 0.12,
         decoration: BoxDecoration(color: colors.cardColor),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -28,14 +34,14 @@ class CustomImageContainer extends StatelessWidget {
             Image.asset(
               image,
               fit: fit,
-              width: size.width * 0.05,
-              height: size.width * 0.05,
+              width: imageSize ?? size.width * 0.05,
+              height: imageSize ?? size.width * 0.05,
             ),
             const SizedBox(height: 15),
             Text(
               lable,
               style: TextStyle(
-                fontSize: size.width * 0.012,
+                fontSize: fontSize ?? size.width * 0.012,
               ),
             )
           ],

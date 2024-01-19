@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:portfolio/presentation/widgets/widgets.dart';
 
-class HomeScreen extends ConsumerWidget {
-  const HomeScreen({super.key});
+class HomeScreenWeb extends ConsumerWidget {
+  const HomeScreenWeb({super.key});
 
   final padding = const EdgeInsets.symmetric(horizontal: 100.0);
 
