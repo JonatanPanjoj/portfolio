@@ -14,11 +14,5 @@ final appRouter = GoRouter(
             : const HomeScreenMobile();
       },
     ),
-    GoRoute(
-      path: '/contact',
-      builder: (context, state) {
-        return const ContactScreen();
-      },
-    ),
   ],
 );
