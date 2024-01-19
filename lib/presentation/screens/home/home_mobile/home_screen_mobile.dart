@@ -30,7 +30,7 @@ class HomeScreenMobile extends StatelessWidget {
             padding: padding ?? EdgeInsets.symmetric(horizontal: size.width * 0.1),
           ),
           const CustomSliverSizedBox(height: 50),
-          const FooterSection()
+          const FooterSection(isMobile: true,)
         ],
       ),
     );

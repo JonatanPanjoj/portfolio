@@ -22,7 +22,7 @@ class SliverAppBarMobile extends StatelessWidget {
         titlePadding: const EdgeInsets.only(bottom: 0, right: 0),
         background: SizedBox.expand(
           child: Image.asset(
-            'assets/img/joix.jpg',
+            'assets/img/joix-mobile.jpg',
             fit: BoxFit.cover,
           ),
         ),

@@ -6,6 +6,7 @@ class HorizontalImageAndDescription extends StatelessWidget {
   final bool swipe;
   final String image;
   final BoxFit fit;
+  final VoidCallback? onPressed;
 
   const HorizontalImageAndDescription({
     super.key,
@@ -14,6 +15,7 @@ class HorizontalImageAndDescription extends StatelessWidget {
     this.fit = BoxFit.cover,
     required this.title,
     required this.description,
+    this.onPressed,
   });
 
   @override
@@ -28,13 +30,12 @@ class HorizontalImageAndDescription extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          if (!swipe) _GradientImage(image: image),
-
+          if (!swipe) _GradientImage(image: image, onPressed: onPressed,),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 25),
             width: size.width * 0.5,
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal:0.0),
+              padding: const EdgeInsets.symmetric(horizontal: 0.0),
               child: Column(
                 children: [
                   Text(
@@ -56,6 +57,7 @@ class HorizontalImageAndDescription extends StatelessWidget {
           if (swipe)
             _GradientImage(
               image: image,
+              onPressed: onPressed,
             ),
         ],
       ),
@@ -65,8 +67,12 @@ class HorizontalImageAndDescription extends StatelessWidget {
 
 class _GradientImage extends StatelessWidget {
   final String image;
+  final VoidCallback? onPressed;
 
-  const _GradientImage({required this.image});
+  const _GradientImage({
+    required this.image,
+    required this.onPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -75,29 +81,38 @@ class _GradientImage extends StatelessWidget {
     final imageSize = size.width * 0.28;
     return ClipRRect(
       borderRadius: const BorderRadius.all(Radius.circular(15)),
-      child: Stack(
-        children: [
-          Image.asset(
-            image,
-            width: imageSize,
-            height: imageSize,
-            fit: BoxFit.cover,
-          ),
-          SizedBox(
-            width: imageSize+2,
-            height: imageSize+2,
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  stops: const [0.3, 0.9],
-                  colors: [Colors.transparent, colors.scaffoldBackgroundColor],
+      child: InkWell(
+        borderRadius: const BorderRadius.all(Radius.circular(15)),
+        enableFeedback: false,
+        splashFactory: NoSplash.splashFactory,
+        onTap: onPressed,
+        child: Stack(
+          children: [
+            Image.asset(
+              image,
+              width: imageSize,
+              height: imageSize,
+              fit: BoxFit.cover,
+            ),
+            SizedBox(
+              width: imageSize + 2,
+              height: imageSize + 2,
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    stops: const [0.3, 0.9],
+                    colors: [
+                      Colors.transparent,
+                      colors.scaffoldBackgroundColor
+                    ],
+                  ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
