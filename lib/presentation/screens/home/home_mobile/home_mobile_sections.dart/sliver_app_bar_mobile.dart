@@ -12,10 +12,9 @@ class SliverAppBarMobile extends StatelessWidget {
     return SliverAppBar(
       shadowColor: colors.canvasColor,
       elevation: 0,
-      // pinned: true,
       surfaceTintColor: colors.canvasColor,
       backgroundColor: colors.canvasColor,
-      // foregroundColor: Colors.white,
+      centerTitle: false,
       expandedHeight: size.height * 0.6,
       titleTextStyle: GoogleFonts.baiJamjuree(),
       flexibleSpace: FlexibleSpaceBar(
@@ -60,11 +59,11 @@ class SliverAppBarMobile extends StatelessWidget {
             ),
             Positioned(
               bottom: 0,
-              left: size.width * 0.045,
+              left: 15,
               child: CustomGradientText(
                 '¡Hola! Soy Jonatan ',
                 style: GoogleFonts.baiJamjuree(
-                  fontSize: size.width * 0.06,
+                  fontSize: 25,
                   fontWeight: FontWeight.bold,
                 ),
               ),

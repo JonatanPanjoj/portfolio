@@ -7,17 +7,16 @@ class PresentationMobileSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return SliverToBoxAdapter(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: size.width * 0.07),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 25),
             child: Text(
               'Web & Mobile Developer',
               style: TextStyle(
-                fontSize: size.width * 0.09,
+                fontSize: 35,
                 fontWeight: FontWeight.normal,
               ),
             ),
@@ -29,18 +28,18 @@ class PresentationMobileSection extends StatelessWidget {
               CustomGradientButton(
                 label: 'get_in_touch'.tr(),
                 onPressed: () {},
-                verticalPadding: size.width * 0.04,
-                horizontalPadding: size.width * 0.04,
-                fontSize: size.width * 0.03,
+                verticalPadding: 10,
+                horizontalPadding: 15,
+                fontSize: 14,
               ),
               const SizedBox(width: 30),
               CustomFilledButton(
                 variant: ButtonVariant.bordered,
-                verticalPadding: size.width * 0.022,
-                horizontalPadding: size.width * 0.05,
+                verticalPadding: 12,
+                horizontalPadding: 12,
                 label: 'projects'.tr().toUpperCase(),
                 onPressed: () {},
-                fontSize: size.width * 0.03,
+                fontSize: 14,
               ),
             ],
           ),

@@ -8,17 +8,16 @@ class UsedToolsMobileSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return SliverToBoxAdapter(
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: size.width * 0.1),
+        padding: const EdgeInsets.symmetric(horizontal: 25),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             CustomGradientText(
               " ${'tools'.tr()} ",
-              style: TextStyle(
-                fontSize: size.width * 0.07,
+              style: const TextStyle(
+                fontSize: 35,
                 fontWeight: FontWeight.bold,
               ),
             ),

@@ -9,26 +9,27 @@ class ProjectItemsMobileSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return SliverToBoxAdapter(
       child: Column(
         children: [
           CustomGradientText(
             " ${'some_projects'.tr()} ",
-            style: TextStyle(
-              fontSize: size.width * 0.07,
+            style: const TextStyle(
+              fontSize: 35,
               fontWeight: FontWeight.bold,
             ),
           ),
           const SizedBox(height: 25),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: size.width * 0.07),
+            padding: const EdgeInsets.symmetric(horizontal: 25),
             child: Column(
               children: [
-                Text(
+                const Text(
                   'Cinemapedia',
                   style: TextStyle(
-                      fontSize: size.width * 0.06, fontWeight: FontWeight.bold),
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                  ),
                   textAlign: TextAlign.justify,
                 ),
                 const SizedBox(height: 5),
@@ -43,8 +44,8 @@ class ProjectItemsMobileSection extends StatelessWidget {
           const SizedBox(height: 15),
           CustomImageAndButtonCard(
             image: 'assets/img/tok-tik-app.png',
-            width: size.width * 0.85,
-            height: size.width * 0.85,
+            width: 300,
+            height: 300,
             onPressed: () async {
               await launchUrl(
                 Uri.https('github.com', '/JonatanPanjoj/cinemapedia'),
@@ -53,13 +54,13 @@ class ProjectItemsMobileSection extends StatelessWidget {
           ),
           const SizedBox(height: 25),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: size.width * 0.07),
+            padding: const EdgeInsets.symmetric(horizontal: 25),
             child: Column(
               children: [
-                Text(
+                const Text(
                   'Tok Tik',
                   style: TextStyle(
-                      fontSize: size.width * 0.06, fontWeight: FontWeight.bold),
+                      fontSize: 30, fontWeight: FontWeight.bold),
                   textAlign: TextAlign.justify,
                 ),
                 const SizedBox(height: 5),
@@ -74,24 +75,23 @@ class ProjectItemsMobileSection extends StatelessWidget {
           const SizedBox(height: 15),
           CustomImageAndButtonCard(
             image: 'assets/img/widgets-app.png',
-            width: size.width * 0.85,
-            height: size.width * 0.85,
+            width: 300,
+            height: 300,
             onPressed: () async {
               await launchUrl(
                 Uri.https('github.com', '/JonatanPanjoj/widgets_app'),
               );
             },
           ),
-
           const SizedBox(height: 25),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: size.width * 0.07),
+            padding: const EdgeInsets.symmetric(horizontal: 25),
             child: Column(
               children: [
-                Text(
+                const Text(
                   'Widgets App',
                   style: TextStyle(
-                      fontSize: size.width * 0.06, fontWeight: FontWeight.bold),
+                      fontSize: 30, fontWeight: FontWeight.bold),
                   textAlign: TextAlign.justify,
                 ),
                 const SizedBox(height: 5),
@@ -106,8 +106,8 @@ class ProjectItemsMobileSection extends StatelessWidget {
           const SizedBox(height: 15),
           CustomImageAndButtonCard(
             image: 'assets/img/widgets-app.png',
-            width: size.width * 0.85,
-            height: size.width * 0.85,
+            width: 300,
+            height: 300,
             onPressed: () async {
               await launchUrl(
                 Uri.https('github.com', '/JonatanPanjoj/widgets_app'),

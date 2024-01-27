@@ -10,7 +10,6 @@ class HomeScreenMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final scaffolKey = GlobalKey<ScaffoldState>();
-    final size = MediaQuery.of(context).size;
     return Scaffold(
       key: scaffolKey,
       drawer: CustomSideMenu(scaffoldkey: scaffolKey,),
@@ -26,8 +25,8 @@ class HomeScreenMobile extends StatelessWidget {
           const UsedToolsMobileSection(),
           const CustomSliverSizedBox(height: 50),
           CuoteSection(
-            fontSize: size.width * 0.07,
-            padding: padding ?? EdgeInsets.symmetric(horizontal: size.width * 0.1),
+            fontSize: 35,
+            padding: padding ?? const EdgeInsets.symmetric(horizontal: 25),
           ),
           const CustomSliverSizedBox(height: 50),
           const FooterSection(isMobile: true,)
