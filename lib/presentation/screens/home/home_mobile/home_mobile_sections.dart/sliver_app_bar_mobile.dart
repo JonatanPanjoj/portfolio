@@ -8,20 +8,19 @@ class SliverAppBarMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context);
-    final size = MediaQuery.of(context).size;
     return SliverAppBar(
       shadowColor: colors.canvasColor,
       elevation: 0,
       surfaceTintColor: colors.canvasColor,
       backgroundColor: colors.canvasColor,
       centerTitle: false,
-      expandedHeight: size.height * 0.6,
+      expandedHeight: 500,
       titleTextStyle: GoogleFonts.baiJamjuree(),
       flexibleSpace: FlexibleSpaceBar(
         titlePadding: const EdgeInsets.only(bottom: 0, right: 0),
         background: SizedBox.expand(
           child: Image.asset(
-            'assets/img/joix-mobile.jpg',
+            'assets/img/joix-photo-mobile.jpg',
             fit: BoxFit.cover,
           ),
         ),

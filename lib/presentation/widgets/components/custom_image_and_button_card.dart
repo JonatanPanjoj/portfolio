@@ -42,10 +42,11 @@ class CustomImageAndButtonCard extends StatelessWidget {
               ),
             ),
           ),
-          Positioned(
-            right: 25,
-            bottom: 25,
-            child: CustomFilledButton(
+          if (onPressed != null)
+            Positioned(
+              right: 25,
+              bottom: 25,
+              child: CustomFilledButton(
               horizontalPadding: 10,
               verticalPadding: 5,
               fontSize: 15,

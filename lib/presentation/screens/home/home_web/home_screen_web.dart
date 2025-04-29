@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:portfolio/presentation/screens/home/home_web/home_screen_sections/email_section.dart';
 import 'package:portfolio/presentation/widgets/widgets.dart';
 
 class HomeScreenWeb extends ConsumerWidget {
@@ -13,6 +14,7 @@ class HomeScreenWeb extends ConsumerWidget {
     final GlobalKey presentationKey = GlobalKey();
     final GlobalKey projectsKey = GlobalKey();
     final GlobalKey toolsKey = GlobalKey();
+    final GlobalKey emailKey = GlobalKey();
 
     return Scaffold(
       body: CustomScrollView(
@@ -22,6 +24,7 @@ class HomeScreenWeb extends ConsumerWidget {
             presentationKey: presentationKey,
             projectsKey: projectsKey,
             toolsKey: toolsKey,
+            emailKey: emailKey,
           ),
           const CustomSliverSizedBox(height: 50),
           PresentationInfoSection(key: presentationKey),
@@ -33,6 +36,8 @@ class HomeScreenWeb extends ConsumerWidget {
           UsedToolsSection(key: toolsKey),
           const CustomSliverSizedBox(height: 75),
           const CuoteSection(),
+          const CustomSliverSizedBox(height: 50),
+          EmailSection(key: emailKey,),
           const CustomSliverSizedBox(height: 50),
           const FooterSection(),
         ],

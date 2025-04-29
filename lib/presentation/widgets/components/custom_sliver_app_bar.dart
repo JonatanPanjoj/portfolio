@@ -5,18 +5,19 @@ import 'package:go_router/go_router.dart';
 import 'package:portfolio/config/theme/theme.dart';
 import 'package:portfolio/presentation/providers/providers.dart';
 import 'package:portfolio/presentation/widgets/widgets.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class CustomSliverAppBar extends ConsumerWidget {
   final GlobalKey? presentationKey;
   final GlobalKey? projectsKey;
   final GlobalKey? toolsKey;
+  final GlobalKey? emailKey;
 
   const CustomSliverAppBar({
     super.key,
     this.presentationKey,
     this.projectsKey,
     this.toolsKey,
+    this.emailKey,
   });
 
   @override
@@ -111,9 +112,8 @@ class CustomSliverAppBar extends ConsumerWidget {
           horizontalPadding: 10,
           label: "lets_talk".tr(),
           onPressed: () async {
-            await launchUrl(
-              Uri.https('instagram.com', '/jonatan_panjoj/'),
-            );
+            if (emailKey == null) return;
+            scrollToKey(emailKey!);
           },
         ),
         const SizedBox(

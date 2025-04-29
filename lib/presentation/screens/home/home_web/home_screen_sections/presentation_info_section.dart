@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/presentation/widgets/widgets.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class PresentationInfoSection extends StatelessWidget {
   const PresentationInfoSection({
@@ -52,7 +53,9 @@ class PresentationInfoSection extends StatelessWidget {
                       children: [
                         CustomGradientButton(
                           label: 'get_in_touch'.tr(),
-                          onPressed: () {},
+                          onPressed: () {
+                            launchUrl(Uri.parse('https://www.linkedin.com/in/jonatan-ixpanel/'));
+                          },
                           verticalPadding: size.width * 0.0117,
                           horizontalPadding: size.width * 0.018,
                           fontSize: size.width * 0.012,
@@ -63,7 +66,9 @@ class PresentationInfoSection extends StatelessWidget {
                           verticalPadding: size.width * 0.007,
                           horizontalPadding: size.width * 0.012,
                           label: 'projects'.tr().toUpperCase(),
-                          onPressed: () {},
+                          onPressed: () {
+                            launchUrl(Uri.parse('https://github.com/JonatanPanjoj'));
+                          },
                           fontSize: size.width * 0.012,
                         ),
                       ],
@@ -75,9 +80,9 @@ class PresentationInfoSection extends StatelessWidget {
             ClipRRect(
               borderRadius: const BorderRadius.all(Radius.circular(15)),
               child: Image.asset(
-                'assets/img/joix.jpg',
-                width: size.width * 0.28,
-                height: size.width * 0.38,
+                'assets/img/joix-photo.jpg',
+                width: 400,
+                height: 700,
                 fit: BoxFit.cover,
               ),
             )

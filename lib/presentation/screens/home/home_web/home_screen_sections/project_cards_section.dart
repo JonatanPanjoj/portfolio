@@ -30,6 +30,22 @@ class ProjectCardsSection extends StatelessWidget {
           ),
           const SizedBox(height: 50),
           HorizontalImageAndDescription(
+            title: 'Reper',
+            description: 'reper_description'.tr(),
+            image: 'assets/img/reper.jpg',
+            fit: BoxFit.fitHeight,
+            swipe: true,
+
+          ),
+          const SizedBox(height: 25),
+          HorizontalImageAndDescription(
+            title: 'Planigo',
+            description: 'planigo_description'.tr(),
+            image: 'assets/img/planigo.jpg',
+            fit: BoxFit.fitHeight,
+          ),
+          const SizedBox(height: 25),
+          HorizontalImageAndDescription(
             title: 'Cinemapedia',
             description: 'cinemapedia_description'.tr(),
             image: 'assets/img/cinemapedia.png',
@@ -41,30 +57,7 @@ class ProjectCardsSection extends StatelessWidget {
               );
             },
           ),
-          HorizontalImageAndDescription(
-            title: 'Tok TIk',
-            description: 'tok_tik_description'.tr(),
-            image: 'assets/img/tok-tik-app.png',
-            fit: BoxFit.fitHeight,
-            onPressed: () async {
-              await launchUrl(
-                Uri.https('github.com', '/JonatanPanjoj/tok_tik_app'),
-              );
-            },
-          ),
-          const SizedBox(height: 25),
-          HorizontalImageAndDescription(
-            title: 'Widgets App',
-            description: 'widgets_app_description'.tr(),
-            image: 'assets/img/widgets-app.png',
-            fit: BoxFit.fitHeight,
-            swipe: true,
-            onPressed: () async {
-              await launchUrl(
-                Uri.https('github.com', '/JonatanPanjoj/widgets_app'),
-              );
-            },
-          ),
+          
           const SizedBox(height: 25),
         ],
       ),

@@ -1,3 +1,4 @@
+export 'package:portfolio/presentation/widgets/components/custom_input.dart';
 export 'package:portfolio/presentation/widgets/components/custon_side_menu.dart';
 export 'package:portfolio/presentation/screens/home/home_mobile/home_mobile_sections.dart/used_tools_mobile_section.dart';
 export 'package:portfolio/presentation/screens/home/home_mobile/home_mobile_sections.dart/stats_items_mobile_section.dart';
